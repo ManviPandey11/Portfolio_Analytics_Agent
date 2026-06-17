@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "evaluated_at": "2026-06-16 16:49:08",
+    "total_questions": 10,
+    "passed": 10,
+    "failed": 0,
+    "accuracy_pct": 100.0,
+    "model_used": "gemini-2.0-flash",
+    "note": "Answers cached in .query_cache.json. To re-run with live API calls: python evaluator.py --no-cache"
+  },
+  "results": [
+    {
+      "id": 1,
+      "question": "How many portfolios do we have in total?",
+      "type": "text2sql",
+      "difficulty": "easy",
+      "status": "PASS",
+      "agent_answer": "13",
+      "cached": true
+    },
+    {
+      "id": 2,
+      "question": "What are the names of all active portfolios?",
+      "type": "text2sql",
+      "difficulty": "easy",
+      "status": "PASS",
+      "agent_answer": "portfolio_name           \n-------------------------\nGrowth Equity Fund       \nConservative Income Fund \nTech Innovation Fund     \nBalanced Portfolio       \nESG Sustainable Fund     \nSmall Cap Value Fund     \nInternational Equity Fund\nFixed Income Plus        \nDividend Aristocrats Fund\nEmerging Markets Fund    ",
+      "cached": true
+    },
+    {
+      "id": 3,
+      "question": "Which securities are in the Technology sector?",
+      "type": "text2sql",
+      "difficulty": "easy",
+      "status": "PASS",
+      "agent_answer": "symbol  company_name         \n------  ---------------------\nAAPL    Apple Inc.           \nMSFT    Microsoft Corporation\nGOOGL   Alphabet Inc.        \nMETA    Meta Platforms Inc.  \nNVDA    NVIDIA Corporation   \nAVGO    Broadcom Inc.        \nCRM     Salesforce Inc.      \nORCL    Oracle Corporation   ",
+      "cached": true
+    },
+    {
+      "id": 4,
+      "question": "What is the total Assets Under Management (AUM) for portfolios with high target risk level?",
+      "type": "text2sql",
+      "difficulty": "medium",
+      "status": "PASS",
+      "agent_answer": "85000000.0",
+      "cached": true
+    },
+    {
+      "id": 5,
+      "question": "Show me the top 5 holdings by cost basis in the Growth Equity Fund",
+      "type": "text2sql",
+      "difficulty": "medium",
+      "status": "PASS",
+      "agent_answer": "holding_id  symbol  company_name           quantity  cost_basis\n----------  ------  ---------------------  --------  ----------\n1           AAPL    Apple Inc.             2500.0    438000.0  \n8           AMZN    Amazon.com Inc.        100.0     320000.0  \n2           MSFT    Microsoft Corporation  800.0     304400.0  \n3           NVDA    NVIDIA Corporation     400.0     288040.0  \n6           CRM     Salesforce Inc.        1000.0    185400.0  ",
+      "cached": true
+    },
+    {
+      "id": 6,
+      "question": "What is the average current price of securities in each sector?",
+      "type": "text2sql",
+      "difficulty": "medium",
+      "status": "PASS",
+      "agent_answer": "sector_name             avg_price\n----------------------  ---------\nConsumer Discretionary  3380.0   \nTechnology              719.245  \nHealthcare              285.17   \nAutomotive              248.5    \nFinancials              201.2125 \nConsumer Staples        173.8625 \nEnergy                  128.575  ",
+      "cached": true
+    },
+    {
+      "id": 7,
+      "question": "For each portfolio, show the total value of Technology sector holdings and what percentage it represents of the total portfolio value",
+      "type": "text2sql",
+      "difficulty": "hard",
+      "status": "PASS",
+      "agent_answer": "portfolio_name                  tech_value  total_value  tech_percentage\n------------------------------  ----------  -----------  ---------------\nTech Innovation Fund            1565292.5   1565292.5    100.0          \nGrowth Equity Fund              1866148.0   2204148.0    84.67          \nTotal International Index Fund  1427086.0   2281686.0    62.55          \nInternational Equity Fund       346888.0    734928.0     47.2           \nTotal Stock Market Index Fund   3093520.0   6622340.0    46.71          \nBalanced Portfolio              388704.0    1073279.0    36.22          \nEmerging Markets Fund           339095.0    1045100.0    32.45          \nESG Sustainable Fund            272978.0    1007228.0    27.1           ",
+      "cached": true
+    },
+    {
+      "id": 8,
+      "question": "Find portfolios that have holdings in more than 5 different sectors and show their diversification metrics",
+      "type": "text2sql",
+      "difficulty": "hard",
+      "status": "PASS",
+      "agent_answer": "portfolio_name                 sector_count  total_holdings  diversification_ratio\n-----------------------------  ------------  --------------  ---------------------\nTotal Stock Market Index Fund  6             12              0.5                  ",
+      "cached": true
+    },
+    {
+      "id": 9,
+      "question": "What are the sector exposures for the Tech Innovation Fund?",
+      "type": "exposure_calculator",
+      "difficulty": "medium",
+      "status": "PASS",
+      "agent_answer": "Sector exposures for 'Tech Innovation Fund' (equities only):\n\n  Technology                100.00%  ##################################################\n\n  TOTAL                     100.00%",
+      "cached": true
+    },
+    {
+      "id": 10,
+      "question": "Calculate the sector exposure breakdown for international equity",
+      "type": "exposure_calculator",
+      "difficulty": "medium",
+      "status": "PASS",
+      "agent_answer": "Sector exposures for 'International Equity Fund' (equities only):\n\n  Energy                     38.00%  ###################\n  Technology                 36.00%  ##################\n  Automotive                 15.00%  #######\n  Consumer Staples           11.00%  #####\n\n  TOTAL                     100.00%",
+      "cached": true
+    }
+  ]
+}
